@@ -1,32 +1,53 @@
-
-
-<p>
-  <strong>Name:</strong>
-  <%= @property.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @property.address %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @property.price %>
-</p>
-
-<p>
-  <strong>Rooms:</strong>
-  <%= @property.rooms %>
-</p>
-
-<p>
-  <strong>Bathrooms:</strong>
-  <%= @property.bathrooms %>
-</p>
+ <div class="container">
+   <div class="row">
+     <div class="col">
+        <div class="property-main-photo" >
+        <div class="photo-overlay">
+        <%= image_tag(@property.photo.url, alt: 'Photo') if @property.photo? %>
+        </div>
+        </div>
+     </div>
+   </div>
+ </div>    
 
 
 
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-8">
+      
 
-<%= link_to 'Edit', edit_property_path(@property), class: "btn btn-primary" %> 
+      <p>
+        <strong>Name:</strong>
+        <%= @property.name %>
+      </p>
+
+      <p>
+        <strong>Address:</strong>
+        <%= @property.address %>
+      </p>
+
+      <p>
+        <strong>Price:</strong>
+        <%= @property.price %>
+      </p>
+
+      <p>
+        <strong>Rooms:</strong>
+        <%= @property.rooms %>
+      </p>
+
+      <p>
+        <strong>Bathrooms:</strong>
+        <%= @property.bathrooms %>
+      </p>
+
+
+    </div>
+    <div class="col-4">
+      side tambahan
+    </div>
+  </div>
+</div>
+    
 

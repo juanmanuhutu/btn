@@ -9,6 +9,32 @@
     </div>
   </div>
 
+  <section id="lates_properties" class="mb-5">
+    <div class="container">
+      <div class="row">
+       <% @properties.each do |property| %>
+        <div class="col-md-4">
+          <%= image_tag property.photo.url, class: "property-thumb" %>
+          
+        <p><%= property.name %></p>  
+          <p><%= property.address %>
+            <div class="amenetiies">
+              
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <p align="right">
+            <%= link_to 'Lihat Details >>', property_path(property), class: "btn btn-secondary" %>
+          </p>
+        </div>
+
+      <% end %>
+       </div>
+    </div>
+  </section>
+
   <div class="container">
     <!-- Example row of columns -->
     <div class="row">
@@ -34,3 +60,6 @@
   </div> <!-- /container -->
 
 </main>
+
+
+

@@ -1,6 +1,7 @@
-class PropertiesController < ApplicationController
+  class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :destroy]
+  before_action :set_sidebar, except: [:show]
 
   # GET /properties
   # GET /properties.json
@@ -43,7 +44,7 @@ class PropertiesController < ApplicationController
   # PATCH/PUT /properties/1.json
   def update
     respond_to do |format|
-      if @property.update(property_params)
+      if @property.update_attributes(property_params)
         format.html { redirect_to @property, notice: 'Property was successfully updated.' }
         format.json { render :show, status: :ok, location: @property }
       else
@@ -67,6 +68,10 @@ class PropertiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_property
       @property = Property.find(params[:id])
+    end
+
+    def set_sidebar
+      @show_sidebar = true
     end
 
     # Only allow a list of trusted parameters through.
